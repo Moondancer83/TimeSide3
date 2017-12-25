@@ -18,14 +18,18 @@ import hu.kalee.timeside.data.TimeSession;
 public class TimeSessionConverter implements Converter<TimeSession, TimeDto> {
     @Override
     public TimeDto convert(final TimeSession source) {
-        TimeDto r = null;
+        TimeDto result = null;
         if (source != null) {
-            r = new TimeDto();
-            r.setId(source.getId());
-            r.setStart(new Date(source.getStart()));
-            r.setEnd(new Date(source.getEnd()));
-            r.setOpen(source.getOpen());
+            result = new TimeDto();
+            result.setId(source.getId());
+            result.setStart(getNullsafeDate(source.getStart()));
+            result.setEnd(getNullsafeDate(source.getEnd()));
+            result.setOpen(source.getOpen());
         }
-        return r;
+        return result;
+    }
+
+    private Date getNullsafeDate(final Long value) {
+        return value != null ? new Date(value) : null;
     }
 }
