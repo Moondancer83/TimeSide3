@@ -1,4 +1,6 @@
 language: java
+env:
+  - CODACY_PROJECT_TOKEN=1d392007ac134f3fb22e7a65442ab805
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
