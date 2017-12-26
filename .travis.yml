@@ -10,3 +10,4 @@ deploy:
   provider: heroku
   api_key:
     secure: "6ce96d9a-fc30-4acf-9c10-fd939e3063f9"
+  app: time-side-3-app
