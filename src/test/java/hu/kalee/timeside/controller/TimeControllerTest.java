@@ -30,4 +30,13 @@ public class TimeControllerTest {
         // THEN
         Mockito.verify(facade).getAll();
     }
+
+    @Test
+    public void testStartTimeSessionShouldCallStartFromFacade() {
+        // GIVEN
+        // WHEN
+        underTest.startTimeSession();
+        // THEN
+        Mockito.verify(facade).start();
+    }
 }
