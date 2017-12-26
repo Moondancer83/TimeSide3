@@ -1,6 +1,5 @@
 package hu.kalee.timeside.controller;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -9,7 +8,6 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import hu.kalee.timeside.facade.TimeSessionFacade;
-import static org.junit.Assert.*;
 
 /**
  * TimeControllerTest.
