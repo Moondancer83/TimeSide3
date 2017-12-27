@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <title>Spring Security Example </title>
+    <link rel="shortcut icon" type="image/png" href="https://findicons.com/files/icons/2146/realistik_reloaded/128/clock.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"></link>
-    <link rel="stylesheet" href="/css/signin.css"></link>
+    <link rel="stylesheet" href="/css/signin.css" />
 </head>
 <body>
     <div class="container">
@@ -21,9 +22,9 @@
         <div th:if="${param.logout}" class="alert alert-warning" role="alert">
             You have been logged out.
         </div>
-            <label for="username">User Name</label>
-            <input type="text" name="username" id="username" class="form-control"/>
-            <label for="password">Password</label>
+            <label for="username" class="sr-only">User Name</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="User Name"/>
+            <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In"/>
         </form>
