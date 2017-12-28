@@ -3,6 +3,7 @@ package hu.kalee.timeside.controller;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -38,5 +39,44 @@ public class TimeControllerTest {
         underTest.startTimeSession();
         // THEN
         Mockito.verify(facade).start();
+    }
+
+    @Test
+    public void testGetOpenTimeSessionShouldCallGetOpenFromFacade() {
+        // GIVEN
+        // WHEN
+        underTest.getOpenTimeSession();
+        // THEN
+        Mockito.verify(facade).getOpen();
+    }
+
+    @Test
+    public void testGetTimeSessionShouldCallGetFromFacade() {
+        // GIVEN
+        Long id = 10L;
+        // WHEN
+        underTest.getTimeSession(id);
+        // THEN
+        Mockito.verify(facade).get(id);
+    }
+
+    @Test
+    public void testStopTimeSessionShouldCallstopFromFacade() {
+        // GIVEN
+        Long id = 10L;
+        // WHEN
+        underTest.stopTimeSession(id);
+        // THEN
+        Mockito.verify(facade).stop(id);
+    }
+
+    @Test
+    public void testGetSplitTimeShouldCallsplitFromFacade() {
+        // GIVEN
+        Long id = 10L;
+        // WHEN
+        underTest.getSplitTime(id);
+        // THEN
+        Mockito.verify(facade).split(id);
     }
 }
