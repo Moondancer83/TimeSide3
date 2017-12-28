@@ -1,6 +1,5 @@
 language: java
 env:
-  - CODACY_PROJECT_TOKEN=1d392007ac134f3fb22e7a65442ab805
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -16,5 +15,5 @@ after_success:
 deploy:
   provider: heroku
   api_key:
-    secure: "6ce96d9a-fc30-4acf-9c10-fd939e3063f9"
+    secure: $HEROKU_API_KEY
   app: time-side-3-app
