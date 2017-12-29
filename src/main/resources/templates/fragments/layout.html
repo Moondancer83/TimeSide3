@@ -16,8 +16,17 @@
 <body>
     <div th:fragment="jumbotron" class="jumbotron">
         <div class="container">
-            <h1>TimeSide</h1>
-            <p class="lead">Time-tracking tool for counting working hours daily.</p>
+            <div class="row justify-content-between">
+                <div class="col">
+                    <h1>TimeSide</h1>
+                    <p class="lead">Time-tracking tool for counting working hours daily.</p>
+                </div>
+                <div class="col-4 text-right">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out" class="btn btn-link"/>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
