@@ -50,4 +50,23 @@ public class TimeController {
     public Long getSplitTime(@PathVariable Long id) {
         return facade.split(id);
     }
+
+    @RequestMapping(value = "time/close", method = RequestMethod.PATCH)
+    public TimeDto closeActiveSession() {
+        TimeDto active = getOpenTimeSession();
+        return stopTimeSession(active.getId());
+    }
+
+    @RequestMapping(value = "time/toogle", method = RequestMethod.POST)
+    public TimeDto toogleSession() {
+        TimeDto active = getOpenTimeSession();
+        if (active == null) {
+            active = facade.start();
+        } else {
+            active = facade.stop(active.getId());
+        }
+
+        return active;
+    }
+
 }

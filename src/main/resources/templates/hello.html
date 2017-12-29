@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Hello World!</title>
-    <link rel="shortcut icon" type="image/png" href="https://findicons.com/files/icons/2146/realistik_reloaded/128/clock.png"/>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"></link>
+<head th:include="fragments/layout :: headFragment">
+    <title id="pageTitle">Hello | History</title>
 </head>
 <body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>TimeSide</h1>
-            <p class="lead">Time-tracking tool for counting working hours daily.</p>
-        </div>
-    </div>
+    <div th:replace="fragments/layout :: jumbotron"></div>
 
-    <div class="container">
+    <main th:include="fragments/layout :: main" class="container">
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out" class="btn btn-link"/>
         </form>
-    </div>
+    </main>
 </body>
 </html>

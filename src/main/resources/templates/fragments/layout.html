@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:fragment="headFragment">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title th:include=":: title">Layout Generic Title</title>
+    <link rel="shortcut icon" type="image/png" href="https://findicons.com/files/icons/2146/realistik_reloaded/128/clock.png"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"></link>
+    <head th:include=":: head"></head>
+</head>
+
+
+<body>
+    <div th:fragment="jumbotron" class="jumbotron">
+        <div class="container">
+            <h1>TimeSide</h1>
+            <p class="lead">Time-tracking tool for counting working hours daily.</p>
+        </div>
+    </div>
+
+    <main th:fragment="main" class="container">
+        <div th:include=":: main"></div>
+    </main>
+</body>
+</html>

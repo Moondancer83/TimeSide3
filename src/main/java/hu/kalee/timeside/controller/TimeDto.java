@@ -43,7 +43,22 @@ public class TimeDto {
         this.open = open;
     }
 
-    public Boolean getOpen() {
+    public Boolean isOpen() {
         return open;
+    }
+
+    /**
+     * Calculate length of session
+     * TODO: refactor to return a string [dd] hh:mm
+     *
+     * @return length of session in hours
+     */
+    public double diff() {
+        Date endDate = this.end;
+        if (end == null) {
+            endDate = new Date();
+        }
+        double hours = (endDate.getTime() - start.getTime()) / (double) (60 * 60 * 1000);
+        return Math.round(hours * 100) / 100d;
     }
 }
