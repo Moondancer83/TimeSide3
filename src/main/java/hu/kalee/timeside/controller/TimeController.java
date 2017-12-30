@@ -53,13 +53,16 @@ public class TimeController {
 
     @RequestMapping(value = "time/close", method = RequestMethod.PATCH)
     public TimeDto closeActiveSession() {
-        TimeDto active = getOpenTimeSession();
+        TimeDto active = facade.getOpen();
+        if(active == null) {
+            throw new IllegalStateException("There is no astive session to close");
+        }
         return stopTimeSession(active.getId());
     }
 
     @RequestMapping(value = "time/toogle", method = RequestMethod.POST)
     public TimeDto toogleSession() {
-        TimeDto active = getOpenTimeSession();
+        TimeDto active = facade.getOpen();
         if (active == null) {
             active = facade.start();
         } else {

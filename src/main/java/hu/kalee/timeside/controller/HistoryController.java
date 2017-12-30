@@ -1,6 +1,5 @@
 package hu.kalee.timeside.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +35,7 @@ public class HistoryController {
 
     @ModelAttribute("hasActive")
     public boolean hasActive() {
-        List<TimeDto> list = new ArrayList<>(facade.getAll());
-        TimeDto last = list.get(list.size() - 1);
+        TimeDto last = facade.getOpen();
         return last.isOpen();
     }
 
