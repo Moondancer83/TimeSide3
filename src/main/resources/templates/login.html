@@ -14,16 +14,17 @@
         <form th:action="@{/login}" method="post" class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-            Invalid username and password.
+            Invalid email and password.
         </div>
         <div th:if="${param.logout}" class="alert alert-warning" role="alert">
             You have been logged out.
         </div>
-            <label for="username" class="sr-only">User Name</label>
-            <input type="text" name="username" id="username" class="form-control" placeholder="User Name"/>
+            <label for="email" class="sr-only">User Name</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="User Name"/>
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In"/>
+            <a th:href="@{/registration}" class="btn btn-lg btn-outline-primary btn-block">Sign up</a>
         </form>
     </main>
 </body>

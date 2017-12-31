@@ -36,7 +36,7 @@ public class HistoryController {
     @ModelAttribute("hasActive")
     public boolean hasActive() {
         TimeDto last = facade.getOpen();
-        return last.isOpen();
+        return last != null;
     }
 
     @RequestMapping(value = "toogle")

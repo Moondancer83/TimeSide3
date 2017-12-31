@@ -22,6 +22,7 @@
                     <p class="lead">Time-tracking tool for counting working hours daily.</p>
                 </div>
                 <div class="col-4 text-right">
+                    <p>Hello <em th:inline="text">[[${#httpServletRequest.remoteUser}]]!</em></p>
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" value="Sign Out" class="btn btn-link"/>
                     </form>
