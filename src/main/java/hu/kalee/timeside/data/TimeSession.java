@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * TimeSession.
@@ -19,6 +20,9 @@ public class TimeSession {
     private Long start;
     private Long end;
     private Boolean open;
+    @ManyToOne
+    private User user;
+
 
     public Long getId() {
         return id;
@@ -44,11 +48,19 @@ public class TimeSession {
         this.end = end;
     }
 
-    public Boolean getOpen() {
+    public Boolean isOpen() {
         return open;
     }
 
     public void setOpen(final Boolean open) {
         this.open = open;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(final User user) {
+        this.user = user;
     }
 }

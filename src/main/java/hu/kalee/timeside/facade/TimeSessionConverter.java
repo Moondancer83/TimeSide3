@@ -24,7 +24,7 @@ public class TimeSessionConverter implements Converter<TimeSession, TimeDto> {
             result.setId(source.getId());
             result.setStart(getNullsafeDate(source.getStart()));
             result.setEnd(getNullsafeDate(source.getEnd()));
-            result.setOpen(source.getOpen());
+            result.setOpen(source.isOpen());
         }
         return result;
     }

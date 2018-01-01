@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Lists;
@@ -11,6 +12,8 @@ import com.google.common.collect.Lists;
 import hu.kalee.timeside.controller.TimeDto;
 import hu.kalee.timeside.data.TimeSession;
 import hu.kalee.timeside.data.TimeSessionRepository;
+import hu.kalee.timeside.data.User;
+import hu.kalee.timeside.data.UserRepository;
 
 /**
  * TimeSessionFacade.
@@ -22,6 +25,8 @@ import hu.kalee.timeside.data.TimeSessionRepository;
 public class TimeSessionFacade {
     @Autowired
     private TimeSessionRepository repository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private TimeSessionConverter converter;
 
@@ -37,6 +42,7 @@ public class TimeSessionFacade {
         final TimeSession entity = new TimeSession();
         entity.setStart(new Date().getTime());
         entity.setOpen(true);
+        entity.setUser(getCurrentUser());
         return converter.convert(repository.save(entity));
     }
 
@@ -62,5 +68,22 @@ public class TimeSessionFacade {
 
     public TimeDto get(final Long id) {
         return converter.convert(repository.findOne(id));
+    }
+
+    //    --------------------------------------------------------------------------------------------------------//
+
+    public List<TimeDto> getAllForCurrentUser() {
+        User user = getCurrentUser();
+        return Lists.transform((List<TimeSession>)repository.findAllByUserId(user.getId()), converter::convert);
+    }
+
+    public TimeDto getOpenForCurrentUser() {
+        User user = getCurrentUser();
+        return converter.convert(repository.findByOpenAndUserId(true, user.getId()));
+    }
+
+    private User getCurrentUser() {
+        String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(userEmail);
     }
 }

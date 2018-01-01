@@ -30,12 +30,12 @@ public class HistoryController {
 
     @ModelAttribute("sessions")
     public List<TimeDto> messages() {
-        return facade.getAll();
+        return facade.getAllForCurrentUser();
     }
 
     @ModelAttribute("hasActive")
     public boolean hasActive() {
-        TimeDto last = facade.getOpen();
+        TimeDto last = facade.getOpenForCurrentUser();
         return last != null;
     }
 

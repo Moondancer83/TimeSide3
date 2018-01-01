@@ -62,7 +62,7 @@ public class TimeController {
 
     @RequestMapping(value = "time/toogle", method = RequestMethod.POST)
     public TimeDto toogleSession() {
-        TimeDto active = facade.getOpen();
+        TimeDto active = facade.getOpenForCurrentUser();
         if (active == null) {
             active = facade.start();
         } else {
