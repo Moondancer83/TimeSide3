@@ -2,6 +2,8 @@ package hu.kalee.timeside.data;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import hu.kalee.timeside.data.entity.TimeSession;
+
 /**
  * TimeSessionRepository.
  *

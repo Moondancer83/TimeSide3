@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import hu.kalee.timeside.data.Role;
+import hu.kalee.timeside.data.entity.Role;
 import hu.kalee.timeside.data.RoleRepository;
-import hu.kalee.timeside.data.User;
+import hu.kalee.timeside.data.entity.User;
 import hu.kalee.timeside.data.UserRepository;
 
 /**
@@ -36,7 +36,7 @@ public class UserFacade {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
         Role userRole = roleRepository.findByRole("USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
 

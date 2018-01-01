@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Lists;
 
-import hu.kalee.timeside.controller.TimeDto;
-import hu.kalee.timeside.data.TimeSession;
+import hu.kalee.timeside.controller.dto.TimeDto;
+import hu.kalee.timeside.converter.TimeSessionConverter;
+import hu.kalee.timeside.data.entity.TimeSession;
 import hu.kalee.timeside.data.TimeSessionRepository;
-import hu.kalee.timeside.data.User;
+import hu.kalee.timeside.data.entity.User;
 import hu.kalee.timeside.data.UserRepository;
 
 /**
@@ -40,7 +41,7 @@ public class TimeSessionFacade {
 
     public TimeDto start() {
         final TimeSession entity = new TimeSession();
-        entity.setStart(new Date().getTime());
+        entity.setStart(new Date());
         entity.setOpen(true);
         entity.setUser(getCurrentUser());
         return converter.convert(repository.save(entity));
@@ -51,7 +52,7 @@ public class TimeSessionFacade {
         if (entity == null) {
             throw new IllegalStateException();
         }
-        entity.setEnd(new Date().getTime());
+        entity.setEnd(new Date());
         entity.setOpen(false);
 
         return converter.convert(repository.save(entity));
@@ -63,7 +64,7 @@ public class TimeSessionFacade {
             throw new IllegalStateException();
         }
 
-        return new Date().getTime() - entity.getStart();
+        return new Date().getTime() - entity.getStart().getTime();
     }
 
     public TimeDto get(final Long id) {

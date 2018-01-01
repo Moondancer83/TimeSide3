@@ -1,4 +1,6 @@
-package hu.kalee.timeside.data;
+package hu.kalee.timeside.data.entity;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +19,8 @@ public class TimeSession {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long start;
-    private Long end;
+    private Date start;
+    private Date end;
     private Boolean open;
     @ManyToOne
     private User user;
@@ -32,19 +34,19 @@ public class TimeSession {
         this.id = id;
     }
 
-    public Long getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(final Long start) {
+    public void setStart(final Date start) {
         this.start = start;
     }
 
-    public Long getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(final Long end) {
+    public void setEnd(final Date end) {
         this.end = end;
     }
 

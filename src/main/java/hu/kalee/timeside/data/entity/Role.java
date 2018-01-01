@@ -1,4 +1,4 @@
-package hu.kalee.timeside.data;
+package hu.kalee.timeside.data.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

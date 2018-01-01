@@ -3,6 +3,8 @@ package hu.kalee.timeside.data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import hu.kalee.timeside.data.entity.User;
+
 /**
  * UserRepository.
  *

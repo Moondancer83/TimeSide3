@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import hu.kalee.timeside.controller.dto.TimeDto;
+import hu.kalee.timeside.controller.rest.TimeController;
 import hu.kalee.timeside.facade.TimeSessionFacade;
 
 /**

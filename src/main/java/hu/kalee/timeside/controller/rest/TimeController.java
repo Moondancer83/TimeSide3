@@ -1,4 +1,4 @@
-package hu.kalee.timeside.controller;
+package hu.kalee.timeside.controller.rest;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import hu.kalee.timeside.controller.dto.TimeDto;
 import hu.kalee.timeside.facade.TimeSessionFacade;
 
 /**

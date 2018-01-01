@@ -1,4 +1,4 @@
-package hu.kalee.timeside.controller;
+package hu.kalee.timeside.controller.dto;
 
 
 import java.util.Date;

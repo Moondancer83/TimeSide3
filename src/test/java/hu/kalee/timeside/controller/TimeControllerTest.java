@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import hu.kalee.timeside.controller.rest.TimeController;
 import hu.kalee.timeside.facade.TimeSessionFacade;
 
 /**

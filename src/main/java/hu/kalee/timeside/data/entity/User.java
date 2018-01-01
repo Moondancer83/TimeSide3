@@ -1,4 +1,4 @@
-package hu.kalee.timeside.data;
+package hu.kalee.timeside.data.entity;
 
 import java.util.List;
 import java.util.Set;
