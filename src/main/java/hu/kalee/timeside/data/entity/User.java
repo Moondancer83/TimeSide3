@@ -41,7 +41,6 @@ public class User {
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
-//    @Transient
     private String password;
     @Column(name = "name")
     @NotEmpty(message = "*Please provide your name")
@@ -56,6 +55,8 @@ public class User {
     private Set<Role> roles;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TimeSession> sessions;
+    @Column(name = "md")
+    private int modified;
 
     public int getId() {
         return id;
@@ -119,5 +120,13 @@ public class User {
 
     public void setSessions(final List<TimeSession> sessions) {
         this.sessions = sessions;
+    }
+
+    public int isModified() {
+        return modified;
+    }
+
+    public void setModified(final int modified) {
+        this.modified = modified;
     }
 }

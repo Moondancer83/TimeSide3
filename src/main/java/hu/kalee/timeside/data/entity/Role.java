@@ -22,6 +22,8 @@ public class Role {
     private int id;
     @Column(name = "role")
     private String role;
+    @Column(name = "md")
+    private int modified;
 
     public int getId() {
         return id;
@@ -37,5 +39,13 @@ public class Role {
 
     public void setRole(final String role) {
         this.role = role;
+    }
+
+    public int isModified() {
+        return modified;
+    }
+
+    public void setModified(final int modified) {
+        this.modified = modified;
     }
 }
